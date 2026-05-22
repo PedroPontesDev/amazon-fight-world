@@ -1,10 +1,10 @@
 package com.amazon_figth_world.model.enums;
 
-public enum SituacaoFiliacao {
+public enum SituacaoInscricao {
 
-	RECEBIDA,
+	PENDENTE,
 	AGUARDANDO_PAGAMENTO,
 	APROVADA,
-	RECUSADA
+	RECUSADA;
 	
 }

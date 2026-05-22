@@ -2,43 +2,58 @@ package com.amazon_figth_world.services.impl;
 
 import java.util.List;
 
-import com.amazon_figth_world.model.dto.v1.UsuarioDTO;
-import com.amazon_figth_world.model.entities.Usuario;
-import com.amazon_figth_world.services.UsuarioService;
+import org.springframework.beans.factory.annotation.Autowired;
 
-public class ModalidadeServicesImpl implements UsuarioService {
+import com.amazon_figth_world.model.entities.Modalidade;
+import com.amazon_figth_world.repositories.ModalidadeRepository;
+import com.amazon_figth_world.services.ModalidadeService;
 
+public class ModalidadeServicesImpl implements ModalidadeService {
+
+	@Autowired
+	private ModalidadeRepository modalidadeRepository;
+	
 	@Override
-	public UsuarioDTO cadastrarUsuario(UsuarioDTO novoUsuario) {
-		Usuario user = new Usuario();
+	public Modalidade criarModalidade(Modalidade novaModalidade) {
+		Modalidade modalidade = new Modalidade();
+		modalidade.setAtiva(true);
 		
-		if(user.getPassword().length() < 8) {
-			if(user.getPassword().contains(null)) {
-				
-			}
-			
-		}
+		if(modalidade.)
+		
+		modalidade.setNomeExibicao(novaModalidade.getNomeExibicao());
 		
 		return null;
-		
 	}
 
 	@Override
-	public UsuarioDTO atualizarUsuario(Long userId, UsuarioDTO novoUsuario) {
+	public Modalidade findModalidadeAtivaPorId(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<UsuarioDTO> listarUsuarios() {
+	public Modalidade findModalidadePorSlug(String slug) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void deletarUsuarioPorId(Long userId) {
+	public List<Modalidade> listarModalidadesAtivas() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Modalidade> listarModalidadesDesativadas() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void desativarModalidadePorId(Long id) {
 		// TODO Auto-generated method stub
 		
 	}
+
 
 }
