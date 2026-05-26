@@ -17,9 +17,6 @@ public class ModalidadeServicesImpl implements ModalidadeService {
 	public Modalidade criarModalidade(Modalidade novaModalidade) {
 		Modalidade modalidade = new Modalidade();
 		modalidade.setAtiva(true);
-		
-		if(modalidade.)
-		
 		modalidade.setNomeExibicao(novaModalidade.getNomeExibicao());
 		
 		return null;

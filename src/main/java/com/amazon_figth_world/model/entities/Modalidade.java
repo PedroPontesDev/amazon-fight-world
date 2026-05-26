@@ -32,6 +32,11 @@ public class Modalidade implements Serializable {
 
 	@OneToMany(mappedBy = "modalidade")
 	private List<CategoriaPeso> categorias = new ArrayList<>();
+	
+
+	@OneToMany(mappedBy = "modalidade")
+	private List<Evento> evento = new ArrayList<>();
+
 
 	public Modalidade(Long id, String slug, String nomeExibicao, boolean ativa, List<CategoriaPeso> categorias) {
 		this.id = id;

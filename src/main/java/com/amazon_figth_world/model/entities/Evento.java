@@ -2,6 +2,8 @@ package com.amazon_figth_world.model.entities;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -12,7 +14,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -39,7 +42,7 @@ public class Evento implements Serializable {
 	@DateTimeFormat(iso = ISO.DATE_TIME, pattern = "yyyy/MM/dd hh:mm:ss")
 	private LocalDateTime terminoEvento;
 
-	@OneToOne
+	@ManyToOne
 	private Modalidade modalidade;
 	
 	private String cep;
@@ -49,6 +52,9 @@ public class Evento implements Serializable {
 	private Integer limiteParticipantes;
 	
 	private boolean ativo = false;
+	
+	@OneToMany(mappedBy = "evento")
+	private List<InscricaoEvento> inscricao = new ArrayList<>();
 	
 	public Evento(Long id, String nomeEvento, String descricaoEvento, String urlImagem, LocalDateTime inicioEvento,
 			LocalDateTime terminoEvento, Modalidade modalidade, String cep, Double valorInscricao,

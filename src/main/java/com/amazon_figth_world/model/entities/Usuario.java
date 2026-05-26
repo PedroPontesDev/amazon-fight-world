@@ -1,7 +1,9 @@
 package com.amazon_figth_world.model.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
 
 import org.springframework.security.core.GrantedAuthority;
@@ -12,6 +14,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -38,7 +43,15 @@ public class Usuario implements UserDetails, Serializable{
 	private String password;
 	
 	private boolean ativo = true;
+	
+	@OneToMany(mappedBy = "usuario")
+	private List<InscricaoEvento> inscricao = new ArrayList<>();
+	
+	@ManyToOne
+	@JoinColumn(name = "academia_id")
+	private Academia academias;
 
+	
 	public Usuario(Long id, String nomeCompleto, String cpf, String email, String username, String password,
 			boolean ativo) {
 		this.id = id;

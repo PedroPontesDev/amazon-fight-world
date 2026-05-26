@@ -8,6 +8,8 @@ import com.amazon_figth_world.model.entities.Usuario;
 
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 	
-	Optional<Usuario> findUsuarioByUsername(String username);
+	
+	
+	
 
 }
